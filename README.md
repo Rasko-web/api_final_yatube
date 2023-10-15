@@ -1,2 +1,2 @@
-# api_final
-api final
+# ЯП - Спринт 11 - Проект «API для Yatube». Python-разработчик (Backend) (Яндекс Практикум)
+## Описаниу
