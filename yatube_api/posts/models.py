@@ -23,6 +23,10 @@ class Post(models.Model):
     def __str__(self):
         return self.text
 
+    class Meta:
+        default_related_name = 'posts'
+        ordering = ['pub_date']
+
 
 class Comment(models.Model):
     author = models.ForeignKey(
