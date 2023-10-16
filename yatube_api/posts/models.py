@@ -20,12 +20,12 @@ class Post(models.Model):
     group = models.ForeignKey(
         Group, on_delete=models.CASCADE, related_name='post_group', null=True)
 
-    def __str__(self):
-        return self.text
-
     class Meta:
         default_related_name = 'posts'
         ordering = ['pub_date']
+
+    def __str__(self):
+        return self.text
 
 
 class Comment(models.Model):
@@ -50,10 +50,10 @@ class Follow(models.Model):
         on_delete=models.CASCADE,
         related_name='following',)
 
-    # class Meta:
-    #     constraints = (
-    #         models.UniqueConstraint(
-    #             fields=('user', 'following'),
-    #             name='unique_follow'
-    #         )
-    #     )
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(
+                fields=['user', 'following'],
+                name='unique_follow'
+            )
+        ]
